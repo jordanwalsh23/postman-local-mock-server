@@ -1,0 +1,14 @@
+{
+  "name": "postman-local",
+  "version": "0.0.1",
+  "description": "Provides the ability to run Postman collections as a local mock server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jordan Walsh <jordanwalsh23@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
