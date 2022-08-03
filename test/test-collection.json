@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "11acbd5c-d3a2-4f69-a4ab-eadef6f0b739",
+		"name": "Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18475591"
+	},
+	"item": [
+		{
+			"name": "Get Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get?name=Jordan",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Jordan"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/get?name=Jordan",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Jordan"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 03 Aug 2022 02:41:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "503"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1f7-qdX6LnGgVWy+eHH+/ITOfwiQWxk\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "set-cookie",
+							"value": "sails.sid=s%3AiHPV5QcgdPRyTcWq0rzdn8M_m5yxLJSd.i19qkF6m%2BBngX%2Fxfb8pjb9x4Qs1WkPHjoeUOIuuDaFI; Path=/; HttpOnly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"args\": {\n        \"name\": \"Jordan\"\n    },\n    \"headers\": {\n        \"x-forwarded-proto\": \"https\",\n        \"x-forwarded-port\": \"443\",\n        \"host\": \"postman-echo.com\",\n        \"x-amzn-trace-id\": \"Root=1-62e9e069-14ff3fa42ffa1f2f0cc08c03\",\n        \"user-agent\": \"PostmanRuntime/7.29.2\",\n        \"accept\": \"*/*\",\n        \"cache-control\": \"no-cache\",\n        \"postman-token\": \"58adcbcc-63a5-4ba6-840e-cd8da0bfba2f\",\n        \"accept-encoding\": \"gzip, deflate, br\",\n        \"cookie\": \"sails.sid=s%3A__Tt7jg1AKXDFjZLe6quPhH48shqJVRT.2%2BgEbIWL8CpbXv5cmga6jYu5yBc4f9Bo9SZe0yip7Lw\"\n    },\n    \"url\": \"https://postman-echo.com/get?name=Jordan\"\n}"
+				},
+				{
+					"name": "200 Different Name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/get?name=Jordan",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Jordan"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"args\": {\n        \"name\": \"Not Jordan\"\n    },\n    \"headers\": {\n        \"x-forwarded-proto\": \"https\",\n        \"x-forwarded-port\": \"443\",\n        \"host\": \"postman-echo.com\",\n        \"x-amzn-trace-id\": \"Root=1-62e9e069-14ff3fa42ffa1f2f0cc08c03\",\n        \"user-agent\": \"PostmanRuntime/7.29.2\",\n        \"accept\": \"*/*\",\n        \"cache-control\": \"no-cache\",\n        \"postman-token\": \"58adcbcc-63a5-4ba6-840e-cd8da0bfba2f\",\n        \"accept-encoding\": \"gzip, deflate, br\",\n        \"cookie\": \"sails.sid=s%3A__Tt7jg1AKXDFjZLe6quPhH48shqJVRT.2%2BgEbIWL8CpbXv5cmga6jYu5yBc4f9Bo9SZe0yip7Lw\"\n    },\n    \"url\": \"https://postman-echo.com/get?name=Jordan\"\n}"
+				},
+				{
+					"name": "201 Created",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/get?name=Jordan",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Jordan"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Location",
+							"value": "https://example.com",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 201,\n    \"message\": \"Item has been created.\"\n}"
+				}
+			]
+		}
+	]
+}
