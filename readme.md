@@ -10,11 +10,12 @@ This project brings Postman's collection mocking capability locally enabling you
 
 ## Getting Started
 
-1. Clone the repo
-2. Import the `postman-local` module into your project `npm install <path-to-postman-local>`
-3. Add the dependency to your project and start the server.
+1. Run `npm install @jordanwalsh23/postman-local`
+2. Add the dependency to your project and start the server.
 
 ```
+const PostmanLocalMockServer = require('@jordanwalsh23/postman-local');
+
 //Create the collection object.
 let collection = JSON.parse(fs.readFileSync('./test/test-collection.json', 'utf8'));
 
