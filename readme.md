@@ -1,5 +1,7 @@
 # Postman Local Mock Server
 
+[![npm version](https://badge.fury.io/js/@jordanwalsh23%2Fpostman-local-mock-server.svg)](https://badge.fury.io/js/@jordanwalsh23%2Fpostman-local-mock-server)
+
 This project brings Postman's collection mocking capability locally enabling you to create mock servers quickly and run tests against these.
 
 ## Capabilities
