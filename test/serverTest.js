@@ -5,7 +5,7 @@ const assert = require('assert')
 
 const PORT = 3555
 
-let server
+let server;
 
 describe('Postman Local Mock Server Tests', () => {
   before(() => {
@@ -32,6 +32,18 @@ describe('Postman Local Mock Server Tests', () => {
         })
         .then(res => {
           assert(res.data.args.name === 'Not Jordan')
+        })
+    })
+
+    it('Faker Library Test', async () => {
+      return await axios
+        .get(`http://localhost:${PORT}/get`, {
+          headers: {
+            'x-mock-response-name': 'Faker Response'
+          }
+        })
+        .then(res => {
+          assert(JSON.stringify(res.data).match(/{{\$.+}}/g) === null)
         })
     })
 
@@ -96,7 +108,7 @@ describe('Postman Local Mock Server Tests', () => {
     it('POST response with an unknown body.', async () => {
       return await axios.post(`http://localhost:${PORT}/post`, {
           number: 999,
-          text: "Fred"  
+          text: "Fred"
       },{
         headers: {
           'x-mock-match-request-body': 'true',
