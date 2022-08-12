@@ -10,6 +10,7 @@ This project brings Postman's collection mocking capability locally enabling you
 - Customizable TCP Port number for your mock server.
 - Supports the `x-mock-response-name` and `x-mock-response-code` headers to specify the response you want returned by either name or status code.
 - Supports the `x-mock-match-request-body` header to match responses on POST/PATCH/PUT requests.
+- Full support for [Postman's dynamic variables](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/) in example responses.
 
 ## Getting Started
 
@@ -39,7 +40,13 @@ server.stop();
 
 4. The server will now have endpoints available that match your specified collection.
 
-## Known Issues
+## Known Issues/Limitations
+
+### Tests/Prerequest scripts are not executed
+
+This emulates the endpoints of a collection and the associated example responses. It does not invoke the pre-request or test scripts within a request.
+
+As such, any requests that are reliant on variables (either collection/environment or global) will not work in this library.
 
 ### Responses for the same path will take the first available
 

@@ -30,7 +30,13 @@
 			],
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "x-mock-response-name",
+						"value": "Faker Response",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "https://postman-echo.com/get?name=Jordan",
 					"protocol": "https",
@@ -175,6 +181,36 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"status\": 201,\n    \"message\": \"Item has been created.\"\n}"
+				},
+				{
+					"name": "Faker Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/get?name=Jordan",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Jordan"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"args\": {\n        \"guid\": \"{{$guid}}\",\n        \"timestamp\": \"{{$timestamp}}\",\n        \"isoTimestamp\": \"{{$isoTimestamp}}\",\n        \"randomUUID\": \"{{$randomUUID}}\",\n        \"name\": \"{{$randomFullName}}\",\n        \"randomAlphaNumeric\": \"{{$randomAlphaNumeric}}\",\n        \"randomBoolean\": \"{{$randomBoolean}}\",\n        \"randomInt\": \"{{$randomInt}}\",\n        \"randomColor\": \"{{$randomColor}}\",\n        \"randomHexColor\": \"{{$randomHexColor}}\",\n        \"randomAbbreviation\": \"{{$randomAbbreviation}}\",\n        \"randomIP\": \"{{$randomIP}}\",\n        \"randomIPV6\": \"{{$randomIPV6}}\",\n        \"randomMACAddress\": \"{{$randomMACAddress}}\",\n        \"randomPassword\": \"{{$randomPassword}}\",\n        \"randomLocale\": \"{{$randomLocale}}\",\n        \"randomUserAgent\": \"{{$randomUserAgent}}\",\n        \"randomProtocol\": \"{{$randomProtocol}}\",\n        \"randomSemver\": \"{{$randomSemver}}\",\n        \"randomFirstName\": \"{{$randomFirstName}}\",\n        \"randomLastName\": \"{{$randomLastName}}\",\n        \"randomFullName\": \"{{$randomFullName}}\",\n        \"randomNamePrefix\": \"{{$randomNamePrefix}}\",\n        \"randomNameSuffix\": \"{{$randomNameSuffix}}\",\n        \"randomJobArea\": \"{{$randomJobArea}}\",\n        \"randomJobDescriptor\": \"{{$randomJobDescriptor}}\",\n        \"randomJobTitle\": \"{{$randomJobTitle}}\",\n        \"randomJobType\": \"{{$randomJobType}}\",\n        \"randomPhoneNumber\": \"{{$randomPhoneNumber}}\",\n        \"randomPhoneNumberExt\": \"{{$randomPhoneNumberExt}}\",\n        \"randomCity\": \"{{$randomCity}}\",\n        \"randomStreetName\": \"{{$randomStreetName}}\",\n        \"randomStreetAddress\": \"{{$randomStreetAddress}}\",\n        \"randomCountry\": \"{{$randomCountry}}\",\n        \"randomCountryCode\": \"{{$randomCountryCode}}\",\n        \"randomLatitude\": \"{{$randomLatitude}}\",\n        \"randomLongitude\": \"{{$randomLongitude}}\",\n        \"randomAvatarImage\": \"{{$randomAvatarImage}}\",\n        \"randomImageUrl\": \"{{$randomImageUrl}}\",\n        \"randomAbstractImage\": \"{{$randomAbstractImage}}\",\n        \"randomAnimalsImage\": \"{{$randomAnimalsImage}}\",\n        \"randomBusinessImage\": \"{{$randomBusinessImage}}\",\n        \"randomCatsImage\": \"{{$randomCatsImage}}\",\n        \"randomCityImage\": \"{{$randomCityImage}}\",\n        \"randomFoodImage\": \"{{$randomFoodImage}}\",\n        \"randomNightlifeImage\": \"{{$randomNightlifeImage}}\",\n        \"randomFashionImage\": \"{{$randomFashionImage}}\",\n        \"randomPeopleImage\": \"{{$randomPeopleImage}}\",\n        \"randomNatureImage\": \"{{$randomNatureImage}}\",\n        \"randomSportsImage\": \"{{$randomSportsImage}}\",\n        \"randomTransportImage\": \"{{$randomTransportImage}}\",\n        \"randomImageDataUri\": \"{{$randomImageDataUri}}\",\n        \"randomBankAccount\": \"{{$randomBankAccount}}\",\n        \"randomBankAccountName\": \"{{$randomBankAccountName}}\",\n        \"randomCreditCardMask\": \"{{$randomCreditCardMask}}\",\n        \"randomBankAccountBic\": \"{{$randomBankAccountBic}}\",\n        \"randomBankAccountIban\": \"{{$randomBankAccountIban}}\",\n        \"randomTransactionType\": \"{{$randomTransactionType}}\",\n        \"randomCurrencyCode\": \"{{$randomCurrencyCode}}\",\n        \"randomCurrencyName\": \"{{$randomCurrencyName}}\",\n        \"randomCurrencySymbol\": \"{{$randomCurrencySymbol}}\",\n        \"randomBitcoin\": \"{{$randomBitcoin}}\",\n        \"randomCompanyName\": \"{{$randomCompanyName}}\",\n        \"randomCompanySuffix\": \"{{$randomCompanySuffix}}\",\n        \"randomBs\": \"{{$randomBs}}\",\n        \"randomBsAdjective\": \"{{$randomBsAdjective}}\",\n        \"randomBsBuzz\": \"{{$randomBsBuzz}}\",\n        \"randomBsNoun\": \"{{$randomBsNoun}}\",\n        \"randomCatchPhrase\": \"{{$randomCatchPhrase}}\",\n        \"randomCatchPhraseAdjective\": \"{{$randomCatchPhraseAdjective}}\",\n        \"randomCatchPhraseDescriptor\": \"{{$randomCatchPhraseDescriptor}}\",\n        \"randomCatchPhraseNoun\": \"{{$randomCatchPhraseNoun}}\",\n        \"randomDatabaseColumn\": \"{{$randomDatabaseColumn}}\",\n        \"randomDatabaseType\": \"{{$randomDatabaseType}}\",\n        \"randomDatabaseCollation\": \"{{$randomDatabaseCollation}}\",\n        \"randomDatabaseEngine\": \"{{$randomDatabaseEngine}}\",\n        \"randomDateFuture\": \"{{$randomDateFuture}}\",\n        \"randomDatePast\": \"{{$randomDatePast}}\",\n        \"randomDateRecent\": \"{{$randomDateRecent}}\",\n        \"randomWeekday\": \"{{$randomWeekday}}\",\n        \"randomMonth\": \"{{$randomMonth}}\",\n        \"randomDomainName\": \"{{$randomDomainName}}\",\n        \"randomDomainSuffix\": \"{{$randomDomainSuffix}}\",\n        \"randomDomainWord\": \"{{$randomDomainWord}}\",\n        \"randomEmail\": \"{{$randomEmail}}\",\n        \"randomExampleEmail\": \"{{$randomExampleEmail}}\",\n        \"randomUserName\": \"{{$randomUserName}}\",\n        \"randomUrl\": \"{{$randomUrl}}\",\n        \"randomFileName\": \"{{$randomFileName}}\",\n        \"randomFileType\": \"{{$randomFileType}}\",\n        \"randomFileExt\": \"{{$randomFileExt}}\",\n        \"randomCommonFileName\": \"{{$randomCommonFileName}}\",\n        \"randomCommonFileType\": \"{{$randomCommonFileType}}\",\n        \"randomCommonFileExt\": \"{{$randomCommonFileExt}}\",\n        \"randomFilePath\": \"{{$randomFilePath}}\",\n        \"randomDirectoryPath\": \"{{$randomDirectoryPath}}\",\n        \"randomMimeType\": \"{{$randomMimeType}}\",\n        \"randomPrice\": \"{{$randomPrice}}\",\n        \"randomProduct\": \"{{$randomProduct}}\",\n        \"randomProductAdjective\": \"{{$randomProductAdjective}}\",\n        \"randomProductMaterial\": \"{{$randomProductMaterial}}\",\n        \"randomProductName\": \"{{$randomProductName}}\",\n        \"randomDepartment\": \"{{$randomDepartment}}\",\n        \"randomNoun\": \"{{$randomNoun}}\",\n        \"randomVerb\": \"{{$randomVerb}}\",\n        \"randomIngverb\": \"{{$randomIngverb}}\",\n        \"randomAdjective\": \"{{$randomAdjective}}\",\n        \"randomWord\": \"{{$randomWord}}\",\n        \"randomWords\": \"{{$randomWords}}\",\n        \"randomPhrase\": \"{{$randomPhrase}}\",\n        \"randomLoremWord\": \"{{$randomLoremWord}}\",\n        \"randomLoremWords\": \"{{$randomLoremWords}}\",\n        \"randomLoremSentence\": \"{{$randomLoremSentence}}\",\n        \"randomLoremSentences\": \"{{$randomLoremSentences}}\",\n        \"randomLoremParagraph\": \"{{$randomLoremParagraph}}\",\n        \"randomLoremParagraphs\": \"{{$randomLoremParagraphs}}\",\n        \"randomLoremText\": \"{{$randomLoremText}}\",\n        \"randomLoremSlug\": \"{{$randomLoremSlug}}\",\n        \"randomLoremLines\": \"{{$randomLoremLines}}\"\n    },\n    \"headers\": {\n        \"x-forwarded-proto\": \"https\",\n        \"x-forwarded-port\": \"443\",\n        \"host\": \"postman-echo.com\",\n        \"x-amzn-trace-id\": \"Root=1-62e9e069-14ff3fa42ffa1f2f0cc08c03\",\n        \"user-agent\": \"PostmanRuntime/7.29.2\",\n        \"accept\": \"*/*\",\n        \"cache-control\": \"no-cache\",\n        \"postman-token\": \"58adcbcc-63a5-4ba6-840e-cd8da0bfba2f\",\n        \"accept-encoding\": \"gzip, deflate, br\",\n        \"cookie\": \"sails.sid=s%3A__Tt7jg1AKXDFjZLe6quPhH48shqJVRT.2%2BgEbIWL8CpbXv5cmga6jYu5yBc4f9Bo9SZe0yip7Lw\"\n    },\n    \"url\": \"https://postman-echo.com/get?name=Jordan\"\n}"
 				}
 			]
 		},
@@ -202,10 +238,21 @@
 			],
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "x-mock-match-request-body",
+						"value": "true",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"number\": 1,\n    \"text\": \"Quick Brown Fox\"\n}",
+					"raw": "{\n    \"number\": 999,\n    \"text\": \"Fred\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -229,7 +276,20 @@
 					"name": "Default Response",
 					"originalRequest": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "x-mock-match-request-body",
+								"value": "true",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"number\": 1,\n    \"text\": \"Quick Brown Fox\"\n}",
