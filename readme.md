@@ -7,6 +7,7 @@ This project brings Postman's collection mocking capability locally enabling you
 - Create a local mock server by supplying a Postman Collection.
 - Customizable TCP Port number for your mock server.
 - Supports the `x-mock-response-name` and `x-mock-response-code` headers to specify the response you want returned by either name or status code.
+- Supports the `x-mock-match-request-body` header to match responses on POST/PATCH/PUT requests.
 
 ## Getting Started
 
