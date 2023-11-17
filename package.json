@@ -1,6 +1,6 @@
 {
   "name": "@jordanwalsh23/postman-local-mock-server",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Provides the ability to run Postman collections as a local mock server.",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.6.2",
     "mocha": "^10.0.0"
   }
 }
