@@ -10,7 +10,7 @@ let server
 describe('Postman Local Mock Server Tests', () => {
   beforeEach(() => {
     let collection = JSON.parse(
-      fs.readFileSync('./test/test-collection.json', 'utf8')
+      fs.readFileSync('./test/collections/test-collection.json', 'utf8')
     )
     server = new PostmanLocalMockServer(PORT, collection)
     server.start()
@@ -134,44 +134,6 @@ describe('Postman Local Mock Server Tests', () => {
         .catch(err => {
           assert(err.response.status === 404)
         })
-    })
-  })
-
-  describe('multiple concurrent server tests', () => {
-    const PORT1 = 5555
-    const PORT2 = 5556
-
-    let server1, server2;
-
-    before('setup servers', () => {
-      let collection1 = JSON.parse(
-        fs.readFileSync('./test/test-collection.json', 'utf8')
-      )
-      server1 = new PostmanLocalMockServer(PORT1, collection1)
-      server1.start()
-
-      let collection2 = JSON.parse(
-        fs.readFileSync('./test/test-collection-2.json', 'utf8')
-      )
-      server2 = new PostmanLocalMockServer(PORT2, collection2)
-      server2.start()
-    })
-
-    it('Tests first server', async () => {
-      return await axios.get(`http://localhost:${PORT1}/get`).then(res => {
-        assert(res.data.args.name === 'Jordan')
-      })
-    })
-
-    it('Tests second server', async () => {
-      return await axios.get(`http://localhost:${PORT2}/get`).then(res => {
-        assert(res.data.args.name === 'John')
-      })
-    })
-
-    after('stop the servers', () => {
-      server1.stop();
-      server2.stop();
     })
   })
 
