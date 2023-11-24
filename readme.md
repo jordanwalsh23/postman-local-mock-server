@@ -7,7 +7,7 @@ This project brings Postman's collection mocking capability locally enabling you
 ## Quick Start
 
 ```bash
-npm install -g postman-local
+npm install -g @jordanwalsh23/postman-local-mock-server
 postman-local -c path/to/collection.json -p 8080
 ```
 
