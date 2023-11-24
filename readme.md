@@ -4,6 +4,13 @@
 
 This project brings Postman's collection mocking capability locally enabling you to create mock servers quickly and run tests against these.
 
+## Quick Start
+
+```bash
+npm install -g postman-local
+postman-local -c path/to/collection.json -p 8080
+```
+
 ## Capabilities
 
 - Create a local mock server by supplying a Postman Collection.
@@ -12,8 +19,7 @@ This project brings Postman's collection mocking capability locally enabling you
 - Supports the `x-mock-match-request-body` header to match responses on POST/PATCH/PUT requests.
 - Full support for [Postman's dynamic variables](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/) in example responses.
 
-## Getting Started
-
+## Using in your project
 1. Run `npm install @jordanwalsh23/postman-local-mock-server`
 2. Add the dependency to your project and start the server.
 
