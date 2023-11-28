@@ -1,0 +1,634 @@
+{
+	"info": {
+		"_postman_id": "e7196393-1374-408c-8713-d28e674461f7",
+		"name": "CollectionWithVariables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18475687"
+	},
+	"item": [
+		{
+			"name": "Query Variable",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get?name=John",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "John"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Query Variable",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/get?name=John",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "John"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 24 Nov 2023 01:42:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "586"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"24a-03zYuaMd3H3MsfY/BbSAHpI/muo\""
+						},
+						{
+							"key": "set-cookie",
+							"value": "sails.sid=s%3ARgryqB9ZANYMiqhw16Nc8_KZE7CpSOjI.%2FYYKX%2FLEliZ1MbApbVoTTr3ntssFpPNlnRzX8A%2Fv27Y; Path=/; HttpOnly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": \"query-variable\",\n    \"username\": \"{{$queryParams 'name'}}\",\n    \"default\": \"{{$queryParams 'default' 'DefaultValue'}}\",\n    \"id\": \"{{$randomUUID}}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Path Segments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get/12345",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get",
+						"12345"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Path Segment",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/get/12345",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get",
+								"12345"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 24 Nov 2023 01:42:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "586"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"24a-03zYuaMd3H3MsfY/BbSAHpI/muo\""
+						},
+						{
+							"key": "set-cookie",
+							"value": "sails.sid=s%3ARgryqB9ZANYMiqhw16Nc8_KZE7CpSOjI.%2FYYKX%2FLEliZ1MbApbVoTTr3ntssFpPNlnRzX8A%2Fv27Y; Path=/; HttpOnly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": \"path-segment\",\n    \"segment\": \"{{$pathSegments '1'}}\",\n    \"id\": \"{{$randomUUID}}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Header Variable",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "Jane",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://postman-echo.com/get",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Header Variable",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "name",
+								"value": "Jane",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://postman-echo.com/get",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 24 Nov 2023 01:43:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "576"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"240-n308XMfxNVP5c+ZIiIOaNGdwZIs\""
+						},
+						{
+							"key": "set-cookie",
+							"value": "sails.sid=s%3ALnkIxlf4WWzAjgUSYL29Sp9oBi-51lD_.vehf2zvt6g6DEJSjTaQ1n1lwjVjFfybO0DB3wlAsRvU; Path=/; HttpOnly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": \"header-variable\",\n    \"username\": \"{{$headers 'name'}}\",\n    \"default\": \"{{$headers 'default' 'DefaultValue'}}\",\n    \"id\": \"{{$randomUUID}}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Body Variable",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Sonya\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Body Variable",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sonya\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://postman-echo.com/post",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 24 Nov 2023 01:43:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "720"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d0-6/bW5lJa3A3A5Wb5RUZqd1akwsY\""
+						},
+						{
+							"key": "set-cookie",
+							"value": "sails.sid=s%3A-zUrGFhVEnWkBXzDi7gN1aZHmNv7SMsW.WMR5DtjnPkV1YF5iXQYc7tPfdTwKK0FT64mKjtshS%2F8; Path=/; HttpOnly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": \"body-variable\",\n    \"username\": \"{{$body 'name'}}\",\n    \"default\": \"{{$body 'default' 'DefaultValue'}}\",\n    \"id\": \"{{$randomUUID}}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Full Body",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Sonya\",\n    \"age\": 35\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Body Variable",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sonya\",\n    \"age\": 35\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://postman-echo.com/post",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 24 Nov 2023 01:43:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "720"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d0-6/bW5lJa3A3A5Wb5RUZqd1akwsY\""
+						},
+						{
+							"key": "set-cookie",
+							"value": "sails.sid=s%3A-zUrGFhVEnWkBXzDi7gN1aZHmNv7SMsW.WMR5DtjnPkV1YF5iXQYc7tPfdTwKK0FT64mKjtshS%2F8; Path=/; HttpOnly"
+						}
+					],
+					"cookie": [],
+					"body": "{{$body}}"
+				}
+			]
+		},
+		{
+			"name": "All three",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "name",
+						"value": "Jane",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Sonya\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post?name=John",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "John"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "All three",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "name",
+								"value": "{{name}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{name}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://postman-echo.com/post?name={{name}}",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{name}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 24 Nov 2023 01:44:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "774"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"306-fmSq35HCkt1kYRn2hOlK+ktwsZw\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": \"all-three\",\n    \"queryName\": \"{{$queryParams 'name'}}\",\n    \"headerName\": \"{{$headers 'name'}}\",\n    \"bodyName\": \"{{$body 'name'}}\",\n    \"id\": \"{{$randomUUID}}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Dot in Key name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user.name\": \"Sonya\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "All three",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user.name\": \"Sonya\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://postman-echo.com/post",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 24 Nov 2023 01:44:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "774"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"306-fmSq35HCkt1kYRn2hOlK+ktwsZw\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": \"dot-in-key-name\",\n    \"bodyName\": \"{{$body 'user.name'}}\",\n    \"id\": \"{{$randomUUID}}\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "name",
+			"value": "John",
+			"type": "string"
+		}
+	]
+}

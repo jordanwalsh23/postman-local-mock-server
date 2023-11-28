@@ -12,7 +12,7 @@ describe('Postman Local Mock Server Tests', () => {
     let collection = JSON.parse(
       fs.readFileSync('./test/collections/test-collection.json', 'utf8')
     )
-    server = new PostmanLocalMockServer(PORT, collection)
+    server = new PostmanLocalMockServer(PORT, collection, true)
     server.start()
   })
 
@@ -131,6 +131,10 @@ describe('Postman Local Mock Server Tests', () => {
             }
           }
         )
+        .then(res => {
+          //This should not work
+          assert(1 == 2);
+        })
         .catch(err => {
           assert(err.response.status === 404)
         })

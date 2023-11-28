@@ -7,11 +7,12 @@ const options = yargs
  .usage("Usage: -c <filename>")
  .option("c", { alias: "collection", describe: "Path to your collection file.", type: "string", demandOption: true })
  .option("p", { alias: "port", describe: "The port you would like to use.", type: "string", default: 3555, demandOption: false })
+ .option("v", { alias: "verbose", describe: "Verbose output", type: "boolean", default: false, demandOption: false })
  .argv;
 
 if(options.collection) {
 
-  let collection, port;
+  let collection, port, verbose;
   try {
     //Create the collection object.
     collection = JSON.parse(fs.readFileSync(options.collection, 'utf8'));
@@ -23,8 +24,12 @@ if(options.collection) {
       port = 99999;
     }
 
+    if(options.verbose) {
+      verbose = options.verbose
+    }
+
     //Create a new server
-    let server = new PostmanLocalMockServer(port, collection);
+    let server = new PostmanLocalMockServer(port, collection, verbose);
 
     //Start the server
     server.start();
