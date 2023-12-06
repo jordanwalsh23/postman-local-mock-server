@@ -65,6 +65,19 @@ There are several ways to overcome this:
 
 If you still cannot get the server to return your specific response, create an issue on this repo with the collection supplied and we'll try to replicate.
 
+### Request Matching algorithm differs from official Postman algorithm
+
+- This library uses a simple scoring based algorithm that does not fully match the more complex [official algorithm](https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/matching-algorithm/)
+- Notable differences include:
+  * Requests with a trailing slash will not be matched at all
+  * Requests with different casing will not be matched at all
+  * Logic to match requests with query parameters and their values differ in the exact scores returned
+  * No document distance / wild card / partial URL matching is supported
+
+### HTTPS is not supported
+
+* server only exposes HTTP endpoints (but it is localhost only)
+
 ## Contributions
 
 Contributions are welcome on this repo. Submit issues or PRs and these will be reviewed for merging.
