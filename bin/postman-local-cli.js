@@ -18,7 +18,13 @@ async function main() {
     try {
       // if collection is a url starting with http, try to download it
       if (options.collection.startsWith('http')) {
-        collection = await fetch(options.collection).then(response => response.json());
+        collection = await fetch(options.collection)
+        .then(response => response.json())
+        .catch(e => {
+          e = new Error("Provided URL was not a valid Collection")
+          e.code = "ERR_NON_JSON_RESPONSE";
+          throw e;
+        });
       } else {
         collection = JSON.parse(fs.readFileSync(options.collection, 'utf8'));
       }
@@ -45,8 +51,10 @@ async function main() {
         console.log(`Error starting local mock server. Collection file not found: "${options.collection}"`)
       } else if (e.code == 'ERR_SOCKET_BAD_PORT') {
         console.log("Error starting local mock server. Could not bind server to port:",options.port)
-      } else {
-        console.log(e)
+      } else if (e.code == 'ERR_NON_JSON_RESPONSE') {
+        console.log("Error starting local mock server. The URL provided was not a valid collection file. Check your URL and try again:",options.collection)
+      }else {
+        console.log(e.code)
       }
     }
 
