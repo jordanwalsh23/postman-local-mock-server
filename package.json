@@ -24,6 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "@faker-js/faker": "^7.4.0",
+    "apicache-extra": "^1.9.1",
     "express": "^4.18.1",
     "lodash": "^4.17.21",
     "yargs": "13.2"
