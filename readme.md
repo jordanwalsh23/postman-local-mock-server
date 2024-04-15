@@ -18,6 +18,8 @@ postman-local -c path/to/collection.json -p 8080
 - Supports the `x-mock-response-name` and `x-mock-response-code` headers to specify the response you want returned by either name or status code.
 - Supports the `x-mock-match-request-body` header to match responses on POST/PATCH/PUT requests.
 - Full support for [Postman's dynamic variables](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/) in example responses.
+- Support for TLS enabled servers by supplying key/certificate.
+- Supports a local cache for performance testing.
 
 ## CLI Options
 
@@ -27,6 +29,7 @@ postman-local -c path/to/collection.json -p 8080
 --key            : Path to Private Key file for TLS protected servers
 --cert           : Path to Certificate file for TLS protected servers
 --debug, -d      : Print debug statements to console when running.
+--cacheTTL       : The time to keep responses in cache - see apicache for options.
 ```
 
 ## Using in your project
@@ -59,6 +62,31 @@ server.stop();
 ```
 
 4. The server will now have endpoints available that match your specified collection.
+
+## Caching
+
+This project includes a local cache that can be enabled via the CLI with the `--cacheTTL` flag or as an object when starting your server e.g.
+
+```
+//Start the server
+server.start({
+    cache: true,
+    cacheOptions: {
+        debug: true,
+        defaultDuration: "500ms"
+    }
+})
+```
+
+The defaultDuration and `cacheTTL` parameters must either specify a number of milliseconds, or use plain text english. Some valid examples:
+
+```
+defaultDuration: "500ms" 
+defaultDuration: "1 minute" 
+defaultDuration: "5 minutes" 
+defaultDuration: "1 hour" 
+defaultDuration: "1 day" 
+```
 
 ## Known Issues/Limitations
 

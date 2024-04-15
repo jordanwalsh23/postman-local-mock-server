@@ -3,17 +3,21 @@ const PostmanLocalMockServer = require('../index.js')
 const axios = require('axios').default
 const assert = require('assert')
 
-const PORT = 3555
+const PORT = 3555;
+
+var options = {
+  port: PORT,
+  debug: true
+}
 
 let server;
 
 describe('Different Request Types', () => {
     before(() => {
-        let collection = JSON.parse(
+        options.collection = JSON.parse(
             fs.readFileSync('./test/collections/cache-tests.json', 'utf8')
         )
-        server = new PostmanLocalMockServer(PORT, collection)
-
+        server = new PostmanLocalMockServer(options)
     })
 
     it('Tests names do not match without cache.', async () => {
