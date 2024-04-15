@@ -3,22 +3,24 @@ const yargs = require("yargs");
 const fs = require('fs');
 const PostmanLocalMockServer = require('../lib/server');
 
-const options = yargs
- .usage("Usage: -c <filename or URL>")
- .option("c", { alias: "collection", describe: "Path to your collection file.", type: "string", demandOption: true })
- .option("p", { alias: "port", describe: "The port you would like to use.", type: "string", default: 3555, demandOption: false })
- .option("v", { alias: "verbose", describe: "Verbose output", type: "boolean", default: false, demandOption: false })
+const cliOptions = yargs
+ .usage("Usage: -c <Path to Collection JSON file, or URL>, -p <Port to use>")
+ .option("collection", { alias: "c", describe: "Path to your Collection JSON file, or URL.", type: "string", demandOption: true })
+ .option("port", { alias: "p", describe: "The port you would like to use.", type: "number", demandOption: true })
+ .option("key", { describe: "Path to the TLS private key file.", type: "string", demandOption: false })
+ .option("cert", { describe: "Path to your TLS certificate file.", type: "string", demandOption: false })
+ .option("debug", { alias: "d", describe: "Add debug statements.", type: "boolean", default: false, demandOption: false })
  .argv;
 
 async function main() {
 
-  if(options.collection) {
+  if(cliOptions.collection) {
 
-    let collection, port, verbose;
+    let serverOptions = {};
     try {
       // if collection is a url starting with http, try to download it
-      if (options.collection.startsWith('http')) {
-        collection = await fetch(options.collection)
+      if (cliOptions.collection.startsWith('http')) {
+        serverOptions.collection = await fetch(cliOptions.collection)
         .then(response => response.json())
         .catch(e => {
           e = new Error("Provided URL was not a valid Collection")
@@ -26,22 +28,31 @@ async function main() {
           throw e;
         });
       } else {
-        collection = JSON.parse(fs.readFileSync(options.collection, 'utf8'));
+        serverOptions.collection = JSON.parse(fs.readFileSync(cliOptions.collection, 'utf8'));
       }
 
-      if(options.port && !isNaN(options.port)) {
-        port = options.port;
+      if(cliOptions.port && !isNaN(cliOptions.port)) {
+        serverOptions.port = cliOptions.port;
       } else {
-        //This will never work so will always throw an error.
-        port = 99999;
+        serverOptions.port = 3555;
       }
 
-      if(options.verbose) {
-        verbose = options.verbose
+      if(cliOptions.debug) {
+        serverOptions.debug = cliOptions.debug
+      }
+
+      if(cliOptions.key && cliOptions.cert) {
+        var key = fs.readFileSync(cliOptions.key)
+        var cert = fs.readFileSync(cliOptions.cert)
+
+        serverOptions.credentials = {
+          key: key,
+          cert: cert
+        }
       }
 
       //Create a new server
-      let server = new PostmanLocalMockServer(port, collection, verbose);
+      let server = new PostmanLocalMockServer(serverOptions);
 
       //Start the server
       server.start();
