@@ -66,9 +66,7 @@ async function main() {
           }
         }
       }
-
-      console.log(serverOptions);
-
+      
       //Start the server
       server.start(serverOptions);
 
