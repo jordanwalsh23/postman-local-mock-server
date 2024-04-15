@@ -19,6 +19,16 @@ postman-local -c path/to/collection.json -p 8080
 - Supports the `x-mock-match-request-body` header to match responses on POST/PATCH/PUT requests.
 - Full support for [Postman's dynamic variables](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/) in example responses.
 
+## CLI Options
+
+```
+--collection, -c : Path to your collection file
+--port, -p       : Port you would like to use to host the server 0-65535
+--key            : Path to Private Key file for TLS protected servers
+--cert           : Path to Certificate file for TLS protected servers
+--debug, -d      : Print debug statements to console when running.
+```
+
 ## Using in your project
 1. Run `npm install @jordanwalsh23/postman-local-mock-server`
 2. Add the dependency to your project and start the server.
@@ -26,11 +36,15 @@ postman-local -c path/to/collection.json -p 8080
 ```
 const PostmanLocalMockServer = require('@jordanwalsh23/postman-local-mock-server');
 
+let options = {
+  port = 3555
+}
+
 //Create the collection object.
-let collection = JSON.parse(fs.readFileSync('./test/test-collection.json', 'utf8'));
+options.collection = JSON.parse(fs.readFileSync('./test/test-collection.json', 'utf8'));
 
 //Create a new server
-let server = new PostmanLocalMockServer(3555, collection);
+let server = new PostmanLocalMockServer(options);
 
 //Start the server
 server.start();
@@ -73,10 +87,6 @@ If you still cannot get the server to return your specific response, create an i
   * Requests with different casing will not be matched at all
   * Logic to match requests with query parameters and their values differ in the exact scores returned
   * No document distance / wild card / partial URL matching is supported
-
-### HTTPS is not supported
-
-* server only exposes HTTP endpoints (but it is localhost only)
 
 ## Contributions
 
