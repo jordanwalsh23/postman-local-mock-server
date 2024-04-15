@@ -3,23 +3,37 @@ const PostmanLocalMockServer = require('../index.js')
 const axios = require('axios').default
 const assert = require('assert')
 
+var options1 = {
+  debug: true
+}
+
+var options2 = {
+  debug: true
+}
+
 describe('multiple concurrent server tests', () => {
   const PORT1 = 5555
   const PORT2 = 5556
-
+  
   let server1, server2;
 
   before('setup servers', () => {
-    let collection1 = JSON.parse(
+    options1.collection = JSON.parse(
       fs.readFileSync('./test/collections/test-collection.json', 'utf8')
     )
-    server1 = new PostmanLocalMockServer(PORT1, collection1)
+
+    options1.port = PORT1;
+
+    server1 = new PostmanLocalMockServer(options1)
     server1.start()
 
-    let collection2 = JSON.parse(
+    options2.collection = JSON.parse(
       fs.readFileSync('./test/collections/test-collection-2.json', 'utf8')
     )
-    server2 = new PostmanLocalMockServer(PORT2, collection2)
+
+    options2.port = PORT2;
+
+    server2 = new PostmanLocalMockServer(options2)
     server2.start()
   })
 
@@ -47,10 +61,13 @@ describe('reusing the same server', () => {
   let server1;
 
   before('setup servers', () => {
-    let collection1 = JSON.parse(
+    options1.collection = JSON.parse(
       fs.readFileSync('./test/collections/test-collection.json', 'utf8')
     )
-    server1 = new PostmanLocalMockServer(PORT1, collection1)
+
+    options1.port = PORT1;
+
+    server1 = new PostmanLocalMockServer(options1)
     server1.start()
   })
 
@@ -63,10 +80,13 @@ describe('reusing the same server', () => {
   it('Sets up the second server', async () => {
     server1.stop();
 
-    let collection2 = JSON.parse(
+    options2.collection = JSON.parse(
       fs.readFileSync('./test/collections/test-collection-2.json', 'utf8')
     )
-    server1 = new PostmanLocalMockServer(PORT1, collection2)
+
+    options2.port = PORT1;
+
+    server1 = new PostmanLocalMockServer(options2)
     server1.start()
   })
 

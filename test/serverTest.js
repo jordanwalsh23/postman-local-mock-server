@@ -3,16 +3,22 @@ const PostmanLocalMockServer = require('../index.js')
 const axios = require('axios').default
 const assert = require('assert')
 
-const PORT = 3555
+const PORT = 3000;
+
+var options = {
+  port: PORT,
+  debug: true
+}
 
 let server
 
 describe('Postman Local Mock Server Tests', () => {
   beforeEach(() => {
-    let collection = JSON.parse(
+    options.collection = JSON.parse(
       fs.readFileSync('./test/collections/test-collection.json', 'utf8')
     )
-    server = new PostmanLocalMockServer(PORT, collection, true)
+
+    server = new PostmanLocalMockServer(options)
     server.start()
   })
 

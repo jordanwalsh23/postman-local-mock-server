@@ -3,16 +3,22 @@ const PostmanLocalMockServer = require('../index.js')
 const axios = require('axios').default
 const assert = require('assert')
 
-const PORT = 4000
+const PORT = 4000;
+
+var options = {
+  port: PORT,
+  debug: true
+}
 
 let server
 
 describe('Score Tests', () => {
   before(() => {
-    let collection = JSON.parse(
+    options.collection = JSON.parse(
       fs.readFileSync('./test/collections/test-scoring-collection.json', 'utf8')
     )
-    server = new PostmanLocalMockServer(PORT, collection, true)
+  
+    server = new PostmanLocalMockServer(options)
     server.start()
   })
 
@@ -54,7 +60,7 @@ describe('Score Tests', () => {
     })
 
     it('Matches on Path and Header Name and Value', async () => {
-      return await axios.get(`http://localhost:${PORT}/get`,{
+      return await axios.get(`http://localhost:${PORT}/get`, {
         headers: {
           name: "John"
         }
@@ -65,7 +71,7 @@ describe('Score Tests', () => {
       })
     })
 
-    
+
   })
 
   after(() => {

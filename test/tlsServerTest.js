@@ -4,7 +4,12 @@ const PostmanLocalMockServer = require('../index.js')
 const axios = require('axios').default
 const assert = require('assert')
 
-const PORT = 3555
+const PORT = 3555;
+
+var options = {
+  port: PORT,
+  debug: true
+}
 
 let server;
 
@@ -15,18 +20,19 @@ const agent = new https.Agent({
 
 describe('Postman Local Mock Server Tests with TLS using constructor', () => {
   beforeEach(() => {
-    let collection = JSON.parse(
+    options.collection = JSON.parse(
       fs.readFileSync('./test/collections/test-collection.json', 'utf8')
     )
 
     var key = fs.readFileSync(__dirname + '/tls/server.key')
     var cert = fs.readFileSync(__dirname + '/tls/server.crt')
-    var credentials = {
+
+    options.credentials = {
       key: key,
       cert: cert
     }
 
-    server = new PostmanLocalMockServer(PORT, collection, true, credentials)
+    server = new PostmanLocalMockServer(options)
     server.start()
   })
 
@@ -168,14 +174,14 @@ describe('Postman Local Mock Server Tests with TLS using constructor', () => {
 
 describe('Postman Local Mock Server Tests with TLS using setter methods', () => {
   beforeEach(() => {
-    let collection = JSON.parse(
+    options.collection = JSON.parse(
       fs.readFileSync('./test/collections/test-collection.json', 'utf8')
     )
 
+    server = new PostmanLocalMockServer(options);
+
     var key = fs.readFileSync(__dirname + '/tls/server.key')
     var cert = fs.readFileSync(__dirname + '/tls/server.crt')
-
-    server = new PostmanLocalMockServer(PORT, collection, true)
 
     server.setTLSCertificate(cert);
     server.setTLSPrivateKey(key);
