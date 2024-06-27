@@ -25,6 +25,17 @@ describe('Replacement Tests', () => {
     assert(replacementValue == defaultValue);
   })
 
+  it('Replaces a $queryParams with a default value that is another variable', () => {
+    let defaultValue = 36;
+    let req = {
+      query: {
+        name: 'John'
+      }
+    }
+    const replacementValue = getReplacementValue("$queryParams 'age' '{{$randomInt}}'", req);
+    assert(replacementValue.toString().indexOf("{") == -1, "Replacement value: " + replacementValue);
+  })
+
   it('Replaces a $headers', () => {
     let req = {
       headers: {
@@ -46,6 +57,16 @@ describe('Replacement Tests', () => {
     assert(replacementValue == defaultValue);
   })
 
+  it('Replaces a $headers with a default value that is another variable', () => {
+    let req = {
+      headers: {
+        name: 'John'
+      }
+    }
+    const replacementValue = getReplacementValue("$headers 'age' '{{$randomInt}}'", req);
+    assert(replacementValue.toString().indexOf("{") == -1, "Replacement value: " + replacementValue);
+  })
+
   it('Replaces a $pathSegments', () => {
     let req = {
       path: '/get/12345'
@@ -56,6 +77,25 @@ describe('Replacement Tests', () => {
     replacementValue = getReplacementValue("$pathSegments '1'", req);
     assert(replacementValue == "12345");
   })
+
+  it('Replaces a $pathSegments with a default', () => {
+    let req = {
+      path: '/get'
+    }
+
+    let replacementValue = getReplacementValue("$pathSegments '1' '12345'", req);
+    assert(replacementValue == "12345");
+  })
+
+  it('Replaces a $pathSegments with a default that is another variable', () => {
+    let req = {
+      path: '/get'
+    }
+
+    let replacementValue = getReplacementValue("$pathSegments '1' '{{$randomFirstName}}'", req);
+    assert(replacementValue.toString().indexOf("{") == -1, "Replacement value: " + replacementValue);
+  })
+
 
   it('Replaces a $body param', () => {
     let req = {
@@ -73,8 +113,18 @@ describe('Replacement Tests', () => {
         name: "John"
       }
     }
-    const replacementValue = getReplacementValue("$body 'age' '36", req);
+    const replacementValue = getReplacementValue("$body 'age' '36'", req);
     assert(replacementValue == 36);
+  })
+
+  it('Replaces a $body param with a default that is another variable.', () => {
+    let req = {
+      body: {
+        name: "John"
+      }
+    }
+    const replacementValue = getReplacementValue("$body 'age' '{{$randomInt}}'", req);
+    assert(replacementValue.toString().indexOf("{") == -1, "Replacement value: " + replacementValue);
   })
 
   it('Replaces the whole $body ', () => {
