@@ -26,7 +26,6 @@ describe('Replacement Tests', () => {
   })
 
   it('Replaces a $queryParams with a default value that is another variable', () => {
-    let defaultValue = 36;
     let req = {
       query: {
         name: 'John'

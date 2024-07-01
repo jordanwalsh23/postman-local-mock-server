@@ -78,6 +78,7 @@ async function main() {
       } else if (e.code == 'ERR_NON_JSON_RESPONSE') {
         console.log("Error starting local mock server. The URL provided was not a valid collection file. Check your URL and try again:", options.collection)
       } else {
+        console.log(e)
         console.log(e.code)
       }
     }

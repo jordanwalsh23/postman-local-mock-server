@@ -6,17 +6,15 @@ const assert = require('assert')
 const PORT = 3555;
 
 var options = {
-  port: PORT,
-  debug: true
+    port: PORT,
+    debug: true,
+    collection: JSON.parse(fs.readFileSync('./test/collections/cache-tests.json', 'utf8'))
 }
 
 let server;
 
 describe('Different Request Types', () => {
-    before(() => {
-        options.collection = JSON.parse(
-            fs.readFileSync('./test/collections/cache-tests.json', 'utf8')
-        )
+    beforeEach(() => {
         server = new PostmanLocalMockServer(options)
     })
 
@@ -24,13 +22,13 @@ describe('Different Request Types', () => {
         server.start() //no cache
 
         let name = "";
-        return await axios.get(`http://localhost:${PORT}/get?name={{$randomFirstName}}`)
+        return await axios.get(`http://localhost:${PORT}/get?name=carol`)
             .then(res => {
                 name = res.data.args.name;
                 console.log(name)
             })
             .then(async () => {
-                return await axios.get(`http://localhost:${PORT}/get?name={{$randomFirstName}}`)
+                return await axios.get(`http://localhost:${PORT}/get?name=stewart`)
             })
             .then(res => {
                 console.log(res.data.args.name)
@@ -49,13 +47,13 @@ describe('Different Request Types', () => {
             }
         })
         let name = "";
-        return await axios.get(`http://localhost:${PORT}/get?name={{$randomFirstName}}`)
+        return await axios.get(`http://localhost:${PORT}/get?name=carol`)
             .then(res => {
                 name = res.data.args.name;
                 console.log(name)
             })
             .then(async () => {
-                return await axios.get(`http://localhost:${PORT}/get?name={{$randomFirstName}}`)
+                return await axios.get(`http://localhost:${PORT}/get?name=carol`)
             })
             .then(res => {
                 console.log(res.data.args.name)
@@ -140,10 +138,10 @@ describe('Different Request Types', () => {
         })
 
         return await axios.get(`http://localhost:${PORT}/get/1`, {
-                headers: {
-                    'x-mock-response-name': 'Get By Id 1'
-                }
-            })
+            headers: {
+                'x-mock-response-name': 'Get By Id 1'
+            }
+        })
             .then(res => {
                 assert(res.data.id == 1)
                 //value is cached.
@@ -161,6 +159,10 @@ describe('Different Request Types', () => {
             })
 
 
+    })
+
+    afterEach(() => {
+        server.stop()
     })
 
 
