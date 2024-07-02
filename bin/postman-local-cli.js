@@ -72,11 +72,11 @@ async function main() {
 
     } catch (e) {
       if (e.code == 'ENOENT') {
-        console.log(`Error starting local mock server. Collection file not found: "${options.collection}"`)
+        console.log("Error starting local mock server. Collection file not found: ", cliOptions.collection)
       } else if (e.code == 'ERR_SOCKET_BAD_PORT') {
-        console.log("Error starting local mock server. Could not bind server to port:", options.port)
+        console.log("Error starting local mock server. Could not bind server to port:", cliOptions.port)
       } else if (e.code == 'ERR_NON_JSON_RESPONSE') {
-        console.log("Error starting local mock server. The URL provided was not a valid collection file. Check your URL and try again:", options.collection)
+        console.log("Error starting local mock server. The URL provided was not a valid collection file. Check your URL and try again:", cliOptions.collection)
       } else {
         console.log(e)
         console.log(e.code)
