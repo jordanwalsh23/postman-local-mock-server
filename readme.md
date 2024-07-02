@@ -16,8 +16,10 @@ postman-local -c path/to/collection.json -p 8080
 - Create a local mock server by supplying a Postman Collection.
 - Customizable TCP Port number for your mock server.
 - Supports the `x-mock-response-name` and `x-mock-response-code` headers to specify the response you want returned by either name or status code.
+- Supports the `x-mock-match-request-headers` header to match only the responses that contain a specific header.
 - Supports the `x-mock-match-request-body` header to match responses on POST/PATCH/PUT requests.
 - Full support for [Postman's dynamic variables](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/) in example responses.
+- Support for wildcard variables in response examples.
 - Support for TLS enabled servers by supplying key/certificate.
 - Supports a local cache for performance testing.
 
@@ -109,12 +111,10 @@ If you still cannot get the server to return your specific response, create an i
 
 ### Request Matching algorithm differs from official Postman algorithm
 
-- This library uses a simple scoring based algorithm that does not fully match the more complex [official algorithm](https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/matching-algorithm/)
+- This library uses a simple scoring based algorithm that mirrors, but does not fully match the more complex [official algorithm](https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/matching-algorithm/)
 - Notable differences include:
-  * Requests with a trailing slash will not be matched at all
-  * Requests with different casing will not be matched at all
-  * Logic to match requests with query parameters and their values differ in the exact scores returned
   * No document distance / wild card / partial URL matching is supported
+  * If `x-mock-response-code` is used and multiple items are found the algorithm will just return the first item instead of prioritising the 2xx response.
 
 ## Contributions
 

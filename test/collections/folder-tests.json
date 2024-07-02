@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "f2563429-1ec5-4327-9a7b-6abb59ea9f8f",
+		"name": "Folder Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18475687"
+	},
+	"item": [
+		{
+			"name": "Folder 1",
+			"item": [
+				{
+					"name": "Folder 2",
+					"item": [
+						{
+							"name": "Folder 2 Request",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://postman-echo.com/get/folder2",
+									"protocol": "https",
+									"host": [
+										"postman-echo",
+										"com"
+									],
+									"path": [
+										"get",
+										"folder2"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Folder 2 Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://postman-echo.com/get/folder2",
+											"protocol": "https",
+											"host": [
+												"postman-echo",
+												"com"
+											],
+											"path": [
+												"get",
+												"folder2"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 02 Jul 2024 00:02:49 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "633"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Server",
+											"value": "nginx/1.25.3"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"279-PqPv4fGM/pYAYOeBpKnTIcl9gsk\""
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"args\": {\n        \"name\": \"Jordan\"\n    },\n    \"headers\": {\n        \"host\": \"postman-echo.com\",\n        \"x-request-start\": \"t=1719878569.535\",\n        \"x-forwarded-proto\": \"https\",\n        \"x-forwarded-port\": \"443\",\n        \"x-amzn-trace-id\": \"Root=1-668343a9-2a9a2cbb7dfb21433f543d8d\",\n        \"user-agent\": \"PostmanRuntime/7.39.0\",\n        \"accept\": \"*/*\",\n        \"cache-control\": \"no-cache\",\n        \"postman-token\": \"603a2afc-2f26-468c-8555-f6e448e7e73c\",\n        \"accept-encoding\": \"gzip, deflate, br\",\n        \"cookie\": \"sails.sid=s%3ALm1N3RziZrlW1k4hl0-19d1DUG1j2I9l.x5BYndOxOBu%2FF%2B1zVnSnlZzdB5E8OGbhZv8HnB2xAQ8\"\n    },\n    \"url\": \"https://postman-echo.com/get?name=Jordan\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Folder 1 Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/get/folder1",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get",
+								"folder1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Folder 1 Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://postman-echo.com/get/folder1",
+									"protocol": "https",
+									"host": [
+										"postman-echo",
+										"com"
+									],
+									"path": [
+										"get",
+										"folder1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Jul 2024 00:02:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "629"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.25.3"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"275-R4d44vVSa0J/oTtHK861e+FpnYE\""
+								},
+								{
+									"key": "set-cookie",
+									"value": "sails.sid=s%3ALm1N3RziZrlW1k4hl0-19d1DUG1j2I9l.x5BYndOxOBu%2FF%2B1zVnSnlZzdB5E8OGbhZv8HnB2xAQ8; Path=/; HttpOnly"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"args\": {\n        \"name\": \"Jordan\"\n    },\n    \"headers\": {\n        \"host\": \"postman-echo.com\",\n        \"x-request-start\": \"t=1719878547.360\",\n        \"x-forwarded-proto\": \"https\",\n        \"x-forwarded-port\": \"443\",\n        \"x-amzn-trace-id\": \"Root=1-66834393-38fc4cfe1d53b4c768ca9759\",\n        \"user-agent\": \"PostmanRuntime/7.39.0\",\n        \"accept\": \"*/*\",\n        \"cache-control\": \"no-cache\",\n        \"postman-token\": \"2f7eac7e-45b0-425b-886b-21fcfb50352a\",\n        \"accept-encoding\": \"gzip, deflate, br\",\n        \"cookie\": \"sails.sid=s%3AhHeau5FHoCO9n1NXLGobRCML4UGOTSrM.t4MprYoUCWY5bIxbZMpWem6NjBl3S43QV5AwEfI7Hz8\"\n    },\n    \"url\": \"https://postman-echo.com/get?name=Jordan\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "No Folder",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "No Folder Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/get?name=Jordan",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Jordan"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 02 Jul 2024 00:01:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "639"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.25.3"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27f-8BGX9iglITEMb2IQy4uvMr1EAHU\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"args\": {\n        \"name\": \"Jordan\"\n    },\n    \"headers\": {\n        \"host\": \"postman-echo.com\",\n        \"x-request-start\": \"t=1719878518.363\",\n        \"x-forwarded-proto\": \"https\",\n        \"x-forwarded-port\": \"443\",\n        \"x-amzn-trace-id\": \"Root=1-66834376-373999572ced7bb465d16f2d\",\n        \"user-agent\": \"PostmanRuntime/7.39.0\",\n        \"accept\": \"*/*\",\n        \"cache-control\": \"no-cache\",\n        \"postman-token\": \"30c5e41c-d3f0-483f-aa0a-a2104d471c04\",\n        \"accept-encoding\": \"gzip, deflate, br\",\n        \"cookie\": \"sails.sid=s%3AdTikKjQco5ZnlMFigBClunzR1fHNOxe-.bqK%2Fl6njjYm2iJBF%2BCHmZPj7KPitoLf%2F%2BJRDtounU%2FQ\"\n    },\n    \"url\": \"https://postman-echo.com/get?name=Jordan\"\n}"
+				}
+			]
+		}
+	]
+}
