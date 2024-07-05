@@ -26,6 +26,7 @@
     "@faker-js/faker": "^7.4.0",
     "apicache-extra": "^1.9.1",
     "express": ">=4.19.2",
+    "fastest-levenshtein": "^1.0.16",
     "follow-redirects": ">=1.15.6",
     "http": "^0.0.1-security",
     "https": "^1.0.0",

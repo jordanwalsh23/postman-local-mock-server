@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "380dfd64-d20e-482a-b991-fea6118aa67c",
+		"name": "Test Document Distance",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18475687"
+	},
+	"item": [
+		{
+			"name": "Perfect Match",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/documents/my-document",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"documents",
+						"my-document"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Perfect Match",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/documents/my-document",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"documents",
+								"my-document"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\" : \"perfect match\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Near Match",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/employees/caroline",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"employees",
+						"caroline"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Near Match",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employees/carolyne",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees",
+								"carolyne"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"near match\"\n}"
+				},
+				{
+					"name": "No Match",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employees/johnson",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees",
+								"johnson"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"no match\"\n}"
+				}
+			]
+		}
+	]
+}
