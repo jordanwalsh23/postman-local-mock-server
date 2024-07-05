@@ -111,10 +111,10 @@ If you still cannot get the server to return your specific response, create an i
 
 ### Request Matching algorithm differs from official Postman algorithm
 
-- This library uses a simple scoring based algorithm that mirrors, but does not fully match the more complex [official algorithm](https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/matching-algorithm/)
-- Notable differences include:
-  * No document distance / wild card / partial URL matching is supported
+- This library uses a scoring based algorithm that mirrors closely, but does not fully match the [official algorithm](https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/matching-algorithm/)
+- Differences include:
   * If `x-mock-response-code` is used and multiple items are found the algorithm will just return the first item instead of prioritising the 2xx response.
+  * If the document distance algorithm is used as no other matches can be found, the first result that meets the criteria is returned instead of calculating all responses and returning the highest score.
 
 ## Contributions
 
