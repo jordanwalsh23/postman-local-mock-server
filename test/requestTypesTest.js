@@ -3,7 +3,7 @@ const PostmanLocalMockServer = require('../index.js')
 const axios = require('axios').default
 const assert = require('assert')
 
-const PORT = 3555;
+const PORT = 3556;
 
 var options = {
   port: PORT,
