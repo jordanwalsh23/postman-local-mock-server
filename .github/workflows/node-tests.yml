@@ -1,17 +1,4 @@
-# Author: Ashutosh Kumar
-# Date: 2023-09-25
-# Version: 1.0
-# Description: This GitHub Actions workflow automates Node.js CI/CD for a Node.js project.
-# It performs the following steps:
-
-# Step 1: Check out the source code.
-# Step 2: Set up different versions of Node.js for testing.
-# Step 3: Perform a clean install of Node.js dependencies.
-# Step 4: Cache and restore dependencies for faster builds.
-# Step 5: Build the source code.
-# Step 6: Run tests using different versions of Node.js.
-
-name: Node.js CI
+name: Run Node Tests
 
 on:
   push:
@@ -21,21 +8,15 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x, 20.x] # Define a matrix of Node.js versions to test.There would be 3 jobs for 16.x, 18.x, 20.x
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2 # Step 1: Check out the source code from the repository.
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 20
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 20
         cache: 'npm' # Step 2: Use npm caching for faster dependency installs.
 
     - name: Install Node.js dependencies
