@@ -161,6 +161,44 @@ describe('Different Request Types', () => {
 
     })
 
+    it('Tests cache is cleared', async () => {
+        console.log("\n\nStarting server with cache\n\n");
+        server.start({
+            cache: true,
+            cacheOptions: {
+                debug: true,
+                defaultDuration: "5000ms"
+            }
+        })
+        let name = "";
+        return await axios.get(`http://localhost:${PORT}/get?name=carol`)
+            .then(res => {
+                name = res.data.args.name;
+                console.log(name)
+            })
+            .then(async () => {
+                return await axios.get(`http://localhost:${PORT}/get?name=carol`)
+            })
+            .then(res => {
+                console.log("Orig name: " + name + " Cached name: " + res.data.args.name)
+                assert(name === res.data.args.name)
+                //cache is working - let's clear it
+                console.log("Deleting cache")
+            })
+            .then(async () => {
+                return await axios.delete(`http://localhost:${PORT}/cache`)
+            })
+            .then(async (cacheClearResult) => {
+                console.log(cacheClearResult ? cacheClearResult.data : false)
+                return await axios.get(`http://localhost:${PORT}/get?name=carol`)
+            })
+            .then(res => {
+                console.log("Orig name: " + name + " New name: " + res.data.args.name)
+                assert(name !== res.data.args.name)
+                //cache is cleared so the names shouldn't match
+            })
+    })
+
     afterEach(() => {
         server.stop()
     })

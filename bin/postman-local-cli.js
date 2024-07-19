@@ -61,7 +61,6 @@ async function main() {
         serverOptions = {
           cache: true,
           cacheOptions: {
-            debug: true,
             defaultDuration: cliOptions.cacheTTL
           }
         }

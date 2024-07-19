@@ -84,7 +84,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"args\": {\n\"name\": \"{{name}}\"\n},\n    \"headers\": {\n        \"x-forwarded-proto\": \"https\",\n        \"x-forwarded-port\": \"443\",\n        \"host\": \"postman-echo.com\",\n        \"x-amzn-trace-id\": \"Root=1-655fe14d-28b9d53f65bb55b309305cdc\",\n        \"user-agent\": \"PostmanRuntime/7.34.0\",\n        \"accept\": \"*/*\",\n        \"cache-control\": \"no-cache\",\n        \"postman-token\": \"134cbbfb-fb0d-4d17-8345-8add3dda36ff\",\n        \"accept-encoding\": \"gzip, deflate, br\"\n    },\n    \"url\": \"https://postman-echo.com/get\"\n}"
+					"body": "{\n    \"args\": {\n\"name\": \"{{$randomFirstName}}\"\n},\n    \"headers\": {\n        \"x-forwarded-proto\": \"https\",\n        \"x-forwarded-port\": \"443\",\n        \"host\": \"postman-echo.com\",\n        \"x-amzn-trace-id\": \"Root=1-655fe14d-28b9d53f65bb55b309305cdc\",\n        \"user-agent\": \"PostmanRuntime/7.34.0\",\n        \"accept\": \"*/*\",\n        \"cache-control\": \"no-cache\",\n        \"postman-token\": \"134cbbfb-fb0d-4d17-8345-8add3dda36ff\",\n        \"accept-encoding\": \"gzip, deflate, br\"\n    },\n    \"url\": \"https://postman-echo.com/get\"\n}"
 				}
 			]
 		},
