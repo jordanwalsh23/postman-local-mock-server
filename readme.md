@@ -74,7 +74,6 @@ This project includes a local cache that can be enabled via the CLI with the `--
 server.start({
     cache: true,
     cacheOptions: {
-        debug: true,
         defaultDuration: "500ms"
     }
 })
@@ -99,7 +98,7 @@ DELETE http://localhost:<PORT>/cache
 204 No Content
 ```
 
-Unfortunately this will clash if there is an endpoint in your supplied collection with the path `/cache`. In that instance you may need to fork a copy of the source code and change this path manually.
+Unfortunately this will clash if there is an endpoint in your supplied collection with the path `/cache`. In that instance you can fork a copy of the source code and change this path manually.
 
 ## Known Issues/Limitations
 
