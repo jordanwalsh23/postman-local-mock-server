@@ -23,7 +23,7 @@ describe('Different Request Types', () => {
   })
 
   it('Default GET response with query param with 1 ids', async () => {
-    return await axios.get(`http://localhost:${PORT}/users?page=1&limit=1&filters=company_id+eq+2&filters=id+in+(05ee1e2d-1a80-4384-9d65-3beb16bcfd1a)`).then(res => {
+    return await axios.get(`http://localhost:${PORT}/users?page=1&limit=1&filters=id+in+(05ee1e2d-1a80-4384-9d65-3beb16bcfd1a),company_id+eq+2`).then(res => {
       assert(res.status, 200)
       assert.deepEqual(res.data, {
         metadata: {
