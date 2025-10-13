@@ -19,7 +19,7 @@ jobs:
         node-version: 22
         
     - name: Install Node.js dependencies
-      run: npm ci # Step 3: Perform a clean install of Node.js dependencies.
+      run: npm install && npm ci # Step 3: Perform a clean install of Node.js dependencies.
 
     - name: Run tests
       run: npm test # Step 4: Run tests using the specified Node.js version.
