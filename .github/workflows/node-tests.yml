@@ -13,12 +13,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2 # Step 1: Check out the source code from the repository.
 
-    - name: Use Node.js 20
+    - name: Use Node.js 22
       uses: actions/setup-node@v2
       with:
-        node-version: 20
-        cache: 'npm' # Step 2: Use npm caching for faster dependency installs.
-
+        node-version: 22
+        
     - name: Install Node.js dependencies
       run: npm ci # Step 3: Perform a clean install of Node.js dependencies.
 
