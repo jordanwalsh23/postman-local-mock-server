@@ -26,12 +26,13 @@ postman-local -c path/to/collection.json -p 8080
 ## CLI Options
 
 ```
---collection, -c : Path to your collection file
---port, -p       : Port you would like to use to host the server 0-65535
---key            : Path to Private Key file for TLS protected servers
---cert           : Path to Certificate file for TLS protected servers
---debug, -d      : Print debug statements to console when running.
---cacheTTL       : The time to keep responses in cache - see apicache for options.
+--collection, -c       : Path to your collection file
+--port, -p             : Port you would like to use to host the server 0-65535
+--key                  : Path to Private Key file for TLS protected servers
+--cert                 : Path to Certificate file for TLS protected servers
+--allowedDomains       : Comma-separated list of domains allowed to access the mock server. If not specified, all domains are allowed.
+--debug, -d            : Print debug statements to console when running.
+--cacheTTL             : The time to keep responses in cache - see apicache for options.
 ```
 
 ## Using in your project
@@ -99,6 +100,58 @@ DELETE http://localhost:<PORT>/cache
 ```
 
 Unfortunately this will clash if there is an endpoint in your supplied collection with the path `/cache`. In that instance you can fork a copy of the source code and change this path manually.
+
+## Domain Allowlist
+
+This project includes a domain allowlist feature that allows you to restrict which domains can access the mock server. When a domain is added to the allowlist, cookies for that domain can be accessed in scripts using the `pm.cookies.jar()` methods.
+
+### Using Domain Allowlist via CLI
+
+Use the `--allowedDomains` (or `--allowDomains`) flag to specify a comma-separated list of allowed domains:
+
+```bash
+postman-local -c path/to/collection.json -p 8080 --allowedDomains "localhost,example.com,api.example.com"
+```
+
+### Using Domain Allowlist Programmatically
+
+When starting your server programmatically, pass the `allowedDomains` option:
+
+```javascript
+const PostmanLocalMockServer = require('@jordanwalsh23/postman-local-mock-server');
+const fs = require('fs');
+
+let options = {
+  port: 3555,
+  allowedDomains: ['localhost', 'example.com', 'api.example.com']
+};
+
+options.collection = JSON.parse(fs.readFileSync('./test/test-collection.json', 'utf8'));
+
+let server = new PostmanLocalMockServer(options);
+server.start();
+```
+
+### How it Works
+
+- If `allowedDomains` is not specified or is an empty array, all domains are allowed to access the mock server.
+- When a domain attempts to access the server, its hostname is extracted from the request's `Host` header.
+- The server checks if the domain exactly matches an allowed domain or is a subdomain of an allowed domain (e.g., `api.example.com` is allowed if `example.com` is in the allowlist).
+- If the domain is not in the allowlist, the server returns a `403 Forbidden` response with a descriptive error message.
+- Allowed domains can then access cookies for their domain using `pm.cookies.jar()` in Postman scripts.
+
+### Example
+
+If you configure the server with:
+```bash
+postman-local -c collection.json -p 8080 --allowedDomains "localhost,example.com"
+```
+
+Then:
+- ✅ Requests from `localhost` will be allowed
+- ✅ Requests from `example.com` will be allowed
+- ✅ Requests from `api.example.com` will be allowed (subdomain)
+- ❌ Requests from `other.com` will be blocked with a 403 response
 
 ## Known Issues/Limitations
 

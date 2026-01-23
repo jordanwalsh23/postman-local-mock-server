@@ -10,6 +10,7 @@ const cliOptions = yargs
   .option("key", { describe: "Path to the TLS private key file.", type: "string", demandOption: false })
   .option("cert", { describe: "Path to your TLS certificate file.", type: "string", demandOption: false })
   .option("cacheTTL", { describe: "Time to keep responses in cache - see apicache.", type: "string", demandOption: false })
+  .option("allowedDomains", { alias: "allowDomains", describe: "Comma-separated list of domains allowed to access the mock server. If not specified, all domains are allowed.", type: "string", demandOption: false })
   .option("debug", { alias: "d", describe: "Add debug statements.", type: "boolean", default: false, demandOption: false })
   .argv;
 
@@ -40,6 +41,14 @@ async function main() {
 
       if (cliOptions.debug) {
         globalOptions.debug = cliOptions.debug
+      }
+
+      if (cliOptions.allowedDomains) {
+        // Parse comma-separated domains and trim whitespace
+        globalOptions.allowedDomains = cliOptions.allowedDomains
+          .split(',')
+          .map(domain => domain.trim())
+          .filter(domain => domain.length > 0);
       }
 
       if (cliOptions.key && cliOptions.cert) {
